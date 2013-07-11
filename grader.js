@@ -61,17 +61,17 @@ if(require.main == module) {
         .option('-u, --url <url>', 'url to check', URL_DEFAULT)
         .parse(process.argv);
 if (program.url) {
-    console.log("URL");
+    //console.log("URL");
     rest.get(program.url).on('complete', function(result) {
       fs.writeFileSync("myfile.html", result);   // Added this line
       var checkJson = checkHtmlFile("myfile.html", program.checks);
       var outJson = JSON.stringify(checkJson, null, 4);
       console.log(outJson);
     });
-    console.log(program.url);
+    //console.log(program.url);
 
 } else {
-  console.log("ELSE");
+  //console.log("ELSE");
   var checkJson = checkHtmlFile(result, program.checks);
   var outJson = JSON.stringify(checkJson, null, 4);
   console.log(outJson);
